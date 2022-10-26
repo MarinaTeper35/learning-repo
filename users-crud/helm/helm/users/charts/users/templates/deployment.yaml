@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Chart.Name }}
+  namespace: {{ .Values.namespace }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Chart.Name }}
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: {{ .Chart.Name }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: {{ .Values.users.image }}
+          imagePullPolicy: Never
+          env:
+            - name: DB_HOSTNAME
+              value: "users-mysql"
+            - name: DB_PORT
+              value: 3306
+            - name: DB_USER
+              value: "teperm"
+            - name: DB_PASS
+              value: Kashya123!

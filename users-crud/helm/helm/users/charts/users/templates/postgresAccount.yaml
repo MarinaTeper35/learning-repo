@@ -1,0 +1,7 @@
+apiVersion: operator.dell.com/v1
+kind: PostgresAccount
+metadata:
+  name: users
+spec:
+  username: users
+  secretName: users-postgres-secret

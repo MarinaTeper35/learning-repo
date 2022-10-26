@@ -1,0 +1,2 @@
+users:
+  image: localhost:5000/users:latest
