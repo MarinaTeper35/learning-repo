@@ -1,0 +1,4 @@
+users:
+  image:  teperm86/learning_repo:latest/users_crud:latest
+  service:
+     fullname: users_crud

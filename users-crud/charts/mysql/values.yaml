@@ -21,13 +21,13 @@ testFramework:
 ## Specify password for root user
 ##
 ## Default: random 10 character string
-# mysqlRootPassword: testing
+mysqlRootPassword: Kashya123!
 
 ## Create a database user
 ##
 # mysqlUser:
 ## Default: random 10 character string
-# mysqlPassword:
+mysqlPassword: Kashya123!
 
 ## Allow unauthenticated access, uncomment to enable
 ##

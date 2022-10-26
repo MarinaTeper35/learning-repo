@@ -35,7 +35,7 @@ in the values.yaml.
 
 You can retrieve your root password by running the following command. Make sure to replace [YOUR_RELEASE_NAME]:
 
-    printf $(printf '\%o' `kubectl get secret [YOUR_RELEASE_NAME]-mysql -o jsonpath="{.data.mysql-root-password[*]}"`)
+    printf $(printf '\%o' `kubectl get secret [YOUR_RELEASE_NAME]-mysql -o jsonpath="{.data.mysql-root-password}"`)
 
 > **Tip**: List all releases using `helm list`
 
