@@ -26,7 +26,7 @@ spec:
             - name: DB_HOSTNAME
               value: "users-mysql"
             - name: DB_PORT
-              value: 3306
+              value: "3306"
             - name: DB_USER
               value: "teperm"
             - name: DB_PASS
