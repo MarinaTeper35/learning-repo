@@ -10,25 +10,16 @@ import org.springframework.context.annotation.ComponentScan;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
-public class UsersCrudApplication implements CommandLineRunner {
+public class UsersCrudApplication  {
 
 	public static void main(String[] args) {
+System.out.println(System.getenv("DB_HOSTNAME"));
+
+		System.out.println(System.getenv("DB_PORT"));
 		SpringApplication.run(UsersCrudApplication.class, args);
 	}
 
 	@Autowired
 	private UsersRepository usersRepository;
 
-	@Override
-	public void run(String... args) throws Exception {
-		User user = new User();
-		user.setFirstName("Marina");
-		user.setLastName("Teper");
-		usersRepository.save(user);
-
-		User user1 = new User();
-		user1.setFirstName("Sergey");
-		user1.setLastName("Teper");
-		usersRepository.save(user1);
-	}
 }
