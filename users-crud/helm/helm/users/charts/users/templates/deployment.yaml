@@ -28,7 +28,7 @@ spec:
             - name: DB_PORT
               value: "3306"
             - name: DB_USER
-              value: "teperm"
+              value: "root"
             - name: DB_PASS
               value: Kashya123!
             - name: DB_DATABASE
