@@ -21,7 +21,7 @@ spec:
       containers:
         - name: {{ .Chart.Name }}
           image: {{ .Values.users.image }}
-          imagePullPolicy: Never
+          imagePullPolicy: Always
           env:
             - name: DB_HOSTNAME
               value: "users-mysql"
