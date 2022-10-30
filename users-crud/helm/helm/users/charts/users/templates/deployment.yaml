@@ -31,3 +31,5 @@ spec:
               value: "teperm"
             - name: DB_PASS
               value: Kashya123!
+            - name: DB_DATABASE
+              value: "my_users1"
