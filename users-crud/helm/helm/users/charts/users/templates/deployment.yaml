@@ -1,13 +1,13 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Chart.Name }}
+  name: {{ .Chart.Name }}-v1
   namespace: {{ .Values.namespace }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ .Chart.Name }}
+      app: {{ .Chart.Name }}-v1
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -16,7 +16,7 @@ spec:
   template:
     metadata:
       labels:
-        app: {{ .Chart.Name }}
+        app: {{ .Chart.Name }}-v1
     spec:
       containers:
         - name: {{ .Chart.Name }}
@@ -33,3 +33,39 @@ spec:
               value: Kashya123!
             - name: DB_DATABASE
               value: "my_users1"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Chart.Name }}-v2
+  namespace: {{ .Values.namespace }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Chart.Name }}-v2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: {{ .Chart.Name }}-v2
+    spec:
+      containers:
+          - name: {{ .Chart.Name }}
+            image: {{ .Values.users.image }}
+            imagePullPolicy: Always
+            env:
+              - name: DB_HOSTNAME
+                value: "users-mysql"
+              - name: DB_PORT
+                value: "3306"
+              - name: DB_USER
+                value: "root"
+              - name: DB_PASS
+                value: Kashya123!
+              - name: DB_DATABASE
+                value: "my_users1"
