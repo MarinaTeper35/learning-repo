@@ -33,6 +33,8 @@ spec:
               value: Kashya123!
             - name: DB_DATABASE
               value: "my_users1"
+            - name: BASE_URL
+              value: "v1/users"
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -69,3 +71,5 @@ spec:
                 value: Kashya123!
               - name: DB_DATABASE
                 value: "my_users1"
+              - name: BASE_URL
+                value: "v2/users"
