@@ -10,3 +10,10 @@ spec:
       port: 8080
   selector:
     app: {{ .Chart.Name }}
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: {{ .Chart.Name }}
+  labels:
+    account:  {{ .Chart.Name }}

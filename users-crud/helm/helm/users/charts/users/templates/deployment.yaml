@@ -18,6 +18,7 @@ spec:
       labels:
         app: {{ .Chart.Name }}-v1
     spec:
+      serviceAccountName: {{ .Chart.Name }}
       containers:
         - name: {{ .Chart.Name }}
           image: {{ .Values.users.image }}
@@ -33,8 +34,6 @@ spec:
               value: Kashya123!
             - name: DB_DATABASE
               value: "my_users1"
-            - name: BASE_URL
-              value: "v1/users"
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -56,6 +55,7 @@ spec:
       labels:
         app: {{ .Chart.Name }}-v2
     spec:
+      serviceAccountName: {{ .Chart.Name }}
       containers:
           - name: {{ .Chart.Name }}
             image: {{ .Values.users.image }}
@@ -70,6 +70,4 @@ spec:
               - name: DB_PASS
                 value: Kashya123!
               - name: DB_DATABASE
-                value: "my_users1"
-              - name: BASE_URL
-                value: "v2/users"
+                value: "my_users2"
